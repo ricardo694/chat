@@ -182,7 +182,7 @@ INSTRUCCIONES DE COMPORTAMIENTO:
                 temperature=0.6,
             )
 
-            assistant_message = response.choices[0].message["content"]
+            assistant_message = response.choices[0].message.content
 
             self.add_to_history("assistant", assistant_message)
             return assistant_message
