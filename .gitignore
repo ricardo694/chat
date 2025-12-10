@@ -1,0 +1,43 @@
+# === ENTORNO ===
+.env
+*.env
+.env.*
+
+
+# === PYTHON ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.db
+
+# Virtual envs
+venv/
+env/
+.venv/
+
+
+# === DEPENDENCIAS ===
+# No subas dependencias instaladas localmente
+site-packages/
+
+
+# === EDITORES ===
+.vscode/
+.idea/
+
+
+# === LOGS ===
+*.log
+logs/
+*.out
+
+
+# === SISTEMA ===
+.DS_Store
+Thumbs.db
+
+# === RENDER ===
+# Archivos generados localmente que no deberían subirse
+render_build/
