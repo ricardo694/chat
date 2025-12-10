@@ -1,15 +1,15 @@
 import mysql.connector
 from decimal import Decimal
 from datetime import date, datetime
-
+import os
 #----CONEXIÓN A LA BASE DE DATOS
 
 def get_connection():
     return mysql.connector.connect(
-        host= 'mysql-base1cine.alwaysdata.net',
-        user= 'base1cine_admin',
-        password= 'contrasena_1234',
-        database= 'base1cine_ventoo'
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASS"),
+        database=os.getenv("DB_NAME")
     )
 
 
