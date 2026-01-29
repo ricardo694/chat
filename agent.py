@@ -178,7 +178,7 @@ INSTRUCCIONES DE COMPORTAMIENTO:
         try:
             response = client.chat.completions.create(
                 model=self.model,
-                messages = self.get_messages() + [{"role": "system", "content": contexto_dinamico}],
+                messages = messages,
                 temperature=0.6,
             )
 

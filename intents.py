@@ -222,7 +222,7 @@ def ejecutar_intencion(intencion, mensaje):
             FROM usuario u
             INNER JOIN producto p ON u.id_usuario = p.id_usuario
             GROUP BY u.id_usuario
-            ORDER BY productos_publicados DESC;""")
+            ORDER BY productos_publicados DESC LIMIT 1;""")
     # ---------------------- PRODUCTO POR NOMBRE ----------------------
     if intencion == "buscar_producto_por_nombre":
         palabra = re.sub(r"(buscar|muéstrame|muestrame|hay|quiero ver)", "", mensaje).strip()
@@ -267,7 +267,8 @@ def ejecutar_intencion(intencion, mensaje):
 
     # ---------------------- RESEÑAS DE UN PRODUCTO ----------------------
     if intencion == "resenas_producto":
-        producto = mensaje.split("de")[-1].strip()
+        match = re.search(r"(de|sobre)\s+(.*)", mensaje)
+        producto = match.group(2) if match else mensaje
 
         return query("""
             SELECT r.estrellas, r.comentario
@@ -284,7 +285,8 @@ def ejecutar_intencion(intencion, mensaje):
         return query("""
             SELECT u.nombre, AVG(r.estrellas) AS promedio_calificacion
             FROM resena r
-            INNER JOIN usuario u ON r.id_usuario = u.id_usuario
+            INNER JOIN producto p ON r.id_producto = p.id_producto
+            INNER JOIN usuario u ON p.id_usuario = u.id_usuario
             WHERE u.nombre LIKE %s
             GROUP BY u.id_usuario;
         """, (f"%{vendedor}%",))
