@@ -108,6 +108,19 @@ INSTRUCCIONES DE COMPORTAMIENTO:
         # Guardamos mensaje normalizado (mejora de intención)
         user_message_norm = normalizar_texto(user_message)
 
+        # -------------------------
+        # IDENTIDAD DEL BOT
+        # -------------------------
+        if any(p in user_message_norm for p in [
+            "quien eres",
+            "qué eres",
+            "que eres",
+            "eres un bot",
+            "quien habla",
+            "como te llamas",
+            "cual es tu nombre"
+        ]):
+            return "Soy RISA 🤖, tu asistente virtual de Ventoo. Puedo ayudarte a buscar productos, ver los más vendidos y conocer vendedores. ¿Qué te gustaría consultar hoy?"
         # Actualizamos contexto
         self.actualizar_contexto_producto(user_message_norm)
 
