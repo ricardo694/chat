@@ -18,11 +18,16 @@ INTENCIONES = {
     ],
     "productos_mas_comprados": [
         "productos mas comprados",
+        "¿Qué es lo más vendido"
         "producto mas vendido",
+        "que producto es el mas vendido",
+        "que producto es el mas comprado",
         "cual es el mas vendido",
         "cual es el producto mas vendido",
         "mas vendidos",
         "lo mas top",
+        "los mas top",
+        "que se vende mas",
         "que es lo mas comprado",
         "producto mas comprado",
         "cuales son los mas comprados",
